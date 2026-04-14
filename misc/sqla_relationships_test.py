@@ -32,6 +32,7 @@ class Users(Base):
 class UserAuth(Base):
     __tablename__ = "user_auth"
 
+    # Columns:
     id: Mapped[int] = mapped_column(sa.Integer, sa.ForeignKey("users.id"), primary_key=True) #Make this the primary column (likened to user_id in UserPost)
     username: Mapped[str]
     email: Mapped[str] = mapped_column(index=True, unique=True)
