@@ -24,7 +24,7 @@ load_csv_as_db_table(data_file = "data/sales_dataset_with_customers.csv",
 # Query:
 
 # Write the SQL here:
-query_ = "SELECT * FROM sales"
+query_statement = "SELECT * FROM sales"
 
-result = query_db(query_,engine)
-print(result)
+query_result = query_db(query_statement,engine)
+print(query_result)
