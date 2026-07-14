@@ -6,12 +6,8 @@ from pathlib import Path
 import streamlit as st
 import pandas as pd
 
-# Custom modules:
-from add_paths import add_paths
-add_paths(["src","src/db","data"])
-from c_engine import *
-from c_pandas_db import *
-from c_query_db import *
+
+from db.engine import create_engine
 
 
 def main():

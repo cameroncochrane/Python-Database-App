@@ -1,12 +1,11 @@
 import sys
 from pathlib import Path
 
-from add_paths import add_paths
-add_paths(["src","src/db","data"])
 
-from c_engine import *
-from c_pandas_db import *
-from c_query_db import *
+
+from db.engine import *
+from src.db.c_pandas_db import *
+from src.db.c_query_db import *
 
 # Create an engine
 engine = create_engine("sqlite:///mydata.db", True)
