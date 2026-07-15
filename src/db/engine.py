@@ -30,7 +30,7 @@ def create_engine(location: str, echo: bool) -> Engine:
 # Session vs Engine
 ####################
 # Engine — the low-level connection to the database. It manages the connection pool and knows how to talk to the database 
-# (dialect, credentials, file path). You typically create one per application/database.
+# (dialect, credentials, file path). You typically create one per application/database. It's an in-memory Python object.
 
 # Session — a higher-level object that sits on top of the engine. It's the main interface for the ORM
 # (Object Relational Mapper). It tracks Python objects and their state, and coordinates reading/writing them to the database.

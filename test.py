@@ -1,29 +1,25 @@
 import sys
 from pathlib import Path
+import os
 
 
 
-from db.engine import *
+from src.db.engine import *
 from src.db.c_pandas_db import *
 from src.db.c_query_db import *
 
-# Create an engine
-engine = create_engine("sqlite:///mydata.db", True)
+from sqlalchemy import inspect
 
-# Load sample data and transform to database via linking to engine
-load_csv_as_db_table(data_file = "data/sales_dataset_with_customers.csv",
-                     table_name = "sales", 
-                     engine = engine,
-                     parse_rules = {
-                            "Date": "datetime",
-                            "Revenue": "float",
-                            "OrderID": "int",
-                        })
+# Create an engine
+
+db_path = os.path.join(os.path.dirname(__file__), "databases","chinook.db")
+
+engine = create_engine(f"sqlite:///{db_path}", False)
 
 # Query:
 
 # Write the SQL here:
-query_statement = "SELECT * FROM sales"
 
-query_result = query_db(query_statement,engine)
-print(query_result)
+# Return table names:
+inspector = inspect(engine)
+print(inspector.get_table_names())
