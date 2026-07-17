@@ -5,7 +5,7 @@ import os
 
 
 from src.db.engine import *
-from src.db.c_pandas_db import *
+from db.pandas_db import *
 from src.db.c_query_db import *
 
 from sqlalchemy import inspect
