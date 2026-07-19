@@ -17,7 +17,9 @@ def create_engine(location: str, echo: bool) -> Engine:
     else:
         print(f"Database not found at {db_path}. Creating new database...")
     
-    return sa.create_engine(url=location, echo=echo)
+    engine = sa.create_engine(url=location, echo=echo)
+    engine.connect()
+    return engine
 
 
 
